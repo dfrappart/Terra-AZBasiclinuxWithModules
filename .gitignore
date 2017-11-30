@@ -1,0 +1,15 @@
+AzureDFProviderSecret.tf
+AzureDFProviderSecret.*
+AzureDFProviderSecretvariables.tf
+AzureDFProviderSecretvariables.*
+AzureDFProviderSecretvariables.tfold
+AzureDVTProviderSecret.tf
+AzureDVTProviderSecret.*
+AzureDVTProviderSecret.tfold
+azurepreviewProviderSecret.tf
+azurepreviewProviderSecret.tfold
+azurepreviewProviderSecret.*
+terraform.tfstate
+terraform.tfstate.backup
+*.tfstate*
+.terraform/
