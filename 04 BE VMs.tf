@@ -176,3 +176,4 @@ module "NetworkWatcherAgentForBEDB" {
     EnvironmentTag          = "${var.EnvironmentTag}"
     EnvironmentUsageTag     = "${var.EnvironmentUsageTag}"
 }
+
