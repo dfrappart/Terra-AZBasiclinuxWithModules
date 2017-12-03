@@ -7,7 +7,9 @@
 module "AllowMySQLFromFEtoBEIn" {
 
     #Module source
-    source = "./Modules/08 NSGRule"
+    #source = "./Modules/08 NSGRule"
+    source = "github.com/dfrappart/Terra-AZBasiclinuxWithModules//Modules//08 NSGRule"
+
 
     #Module variable
     RGName = "${module.ResourceGroup.Name}"
@@ -26,7 +28,9 @@ module "AllowMySQLFromFEtoBEIn" {
 module "AllowSSHFromBastiontoBEIn" {
 
     #Module source
-    source = "./Modules/08 NSGRule"
+    #source = "./Modules/08 NSGRule"
+    source = "github.com/dfrappart/Terra-AZBasiclinuxWithModules//Modules//08 NSGRule"
+
 
     #Module variable
     RGName = "${module.ResourceGroup.Name}"
@@ -45,7 +49,9 @@ module "AllowSSHFromBastiontoBEIn" {
 module "AllowAllBEtoInternetOut" {
 
     #Module source
-    source = "./Modules/08 NSGRule"
+    #source = "./Modules/08 NSGRule"
+    source = "github.com/dfrappart/Terra-AZBasiclinuxWithModules//Modules//08 NSGRule"
+
 
     #Module variable
     RGName = "${module.ResourceGroup.Name}"
@@ -68,7 +74,9 @@ module "AS_BEDB" {
 
     #Module source
 
-    source = "./Modules/13 AvailabilitySet"
+    #source = "./Modules/13 AvailabilitySet"
+    source = "github.com/dfrappart/Terra-AZBasiclinuxWithModules//Modules//13 AvailabilitySet"
+
 
     #Module variables
     ASName                  = "AS_BEDB"
@@ -86,7 +94,9 @@ module "NICs_BEDB" {
 
     #module source
 
-    source = "./Modules/09 NICWithoutPIPWithCount"
+    #source = "./Modules/09 NICWithoutPIPWithCount"
+    source = "github.com/dfrappart/Terra-AZBasiclinuxWithModules//Modules//09 NICWithoutPIPWithCount"
+
 
     #Module variables
 
@@ -107,7 +117,9 @@ module "DataDisks_BEDB" {
 
     #Module source
 
-    source = "./Modules/06 ManagedDiskswithcount"
+    #source = "./Modules/06 ManagedDiskswithcount"
+    source = "github.com/dfrappart/Terra-AZBasiclinuxWithModules//Modules//06 ManagedDiskswithcount"
+
 
     #Module variables
 
@@ -130,7 +142,9 @@ module "VMs_BEDB" {
 
     #module source
 
-    source = "./Modules/14 LinuxVMWithCount"
+    #source = "./Modules/14 LinuxVMWithCount"
+    source = "github.com/dfrappart/Terra-AZBasiclinuxWithModules//Modules//14 LinuxVMWithCount"
+
 
     #Module variables
 
@@ -165,7 +179,8 @@ module "VMs_BEDB" {
 module "NetworkWatcherAgentForBEDB" {
 
     #Module Location
-    source = "./Modules/20 LinuxNetworkWatcherAgent"
+    #source = "./Modules/20 LinuxNetworkWatcherAgent"
+    source = "github.com/dfrappart/Terra-AZBasiclinuxWithModules//Modules//20 LinuxNetworkWatcherAgent"
 
     #Module variables
     AgentCount              = "2"

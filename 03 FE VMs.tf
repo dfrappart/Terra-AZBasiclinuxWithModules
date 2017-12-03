@@ -7,7 +7,8 @@
 module "AllowHTTPFromInternetFEIn" {
 
     #Module source
-    source = "./Modules/08 NSGRule"
+    #source = "./Modules/08 NSGRule"
+    source = "github.com/dfrappart/Terra-AZBasiclinuxWithModules//Modules//08 NSGRule"
 
     #Module variable
     RGName = "${module.ResourceGroup.Name}"
@@ -26,7 +27,9 @@ module "AllowHTTPFromInternetFEIn" {
 module "AllowSSHFromBastiontoFEIn" {
 
     #Module source
-    source = "./Modules/08 NSGRule"
+    #source = "./Modules/08 NSGRule"
+    source = "github.com/dfrappart/Terra-AZBasiclinuxWithModules//Modules//08 NSGRule"
+
 
     #Module variable
     RGName = "${module.ResourceGroup.Name}"
@@ -45,7 +48,9 @@ module "AllowSSHFromBastiontoFEIn" {
 module "AllowMySQLFromFEtoBEOut" {
 
     #Module source
-    source = "./Modules/08 NSGRule"
+    #source = "./Modules/08 NSGRule"
+    source = "github.com/dfrappart/Terra-AZBasiclinuxWithModules//Modules//08 NSGRule"
+
 
     #Module variable
     RGName = "${module.ResourceGroup.Name}"
@@ -64,7 +69,9 @@ module "AllowMySQLFromFEtoBEOut" {
 module "AllowAllFEtoInternetOut" {
 
     #Module source
-    source = "./Modules/08 NSGRule"
+    #source = "./Modules/08 NSGRule"
+    source = "github.com/dfrappart/Terra-AZBasiclinuxWithModules//Modules//08 NSGRule"
+
 
     #Module variable
     RGName = "${module.ResourceGroup.Name}"
@@ -85,7 +92,9 @@ module "AllowAllFEtoInternetOut" {
 module "LBWebPublicIP" {
 
     #Module source
-    source = "./Modules/10 PublicIP"
+    #source = "./Modules/10 PublicIP"
+    source = "github.com/dfrappart/Terra-AZBasiclinuxWithModules//Modules//10 PublicIP"
+
 
     #Module variables
     PublicIPCount           = "1"
@@ -101,7 +110,9 @@ module "LBWebPublicIP" {
 module "LBWebFE" {
 
     #Module source
-    source = "./Modules/15 External LB"
+    #source = "./Modules/15 External LB"
+    source = "github.com/dfrappart/Terra-AZBasiclinuxWithModules//Modules//15 External LB"
+
 
     #Module variables
     LBCount             = "1"
@@ -130,7 +141,9 @@ module "AS_FEWEB" {
 
     #Module source
 
-    source = "./Modules/13 AvailabilitySet"
+    #source = "./Modules/13 AvailabilitySet"
+    source = "github.com/dfrappart/Terra-AZBasiclinuxWithModules//Modules//13 AvailabilitySet"
+
 
     #Module variables
     ASName                  = "AS_FEWEB"
@@ -148,7 +161,9 @@ module "NICs_FEWEB" {
 
     #module source
 
-    source = "./Modules/09 NICWithoutPIPWithCount"
+    #source = "./Modules/09 NICWithoutPIPWithCount"
+    source = "github.com/dfrappart/Terra-AZBasiclinuxWithModules//Modules//09 NICWithoutPIPWithCount"
+
 
     #Module variables
 
@@ -171,7 +186,9 @@ module "DataDisks_FEWEB" {
 
     #Module source
 
-    source = "./Modules/06 ManagedDiskswithcount"
+    #source = "./Modules/06 ManagedDiskswithcount"
+    source = "github.com/dfrappart/Terra-AZBasiclinuxWithModules//Modules//06 ManagedDiskswithcount"
+
 
     #Module variables
 
@@ -194,7 +211,9 @@ module "VMs_FEWEB" {
 
     #module source
 
-    source = "./Modules/14 LinuxVMWithCount"
+    #source = "./Modules/14 LinuxVMWithCount"
+    source = "github.com/dfrappart/Terra-AZBasiclinuxWithModules//Modules//14 LinuxVMWithCount"
+
 
     #Module variables
 
@@ -229,7 +248,9 @@ module "VMs_FEWEB" {
 module "NetworkWatcherAgentForFEWeb" {
 
     #Module Location
-    source = "./Modules/20 LinuxNetworkWatcherAgent"
+    #source = "./Modules/20 LinuxNetworkWatcherAgent"
+    source = "github.com/dfrappart/Terra-AZBasiclinuxWithModules//Modules//20 LinuxNetworkWatcherAgent"
+
 
     #Module variables
     AgentCount              = "3"

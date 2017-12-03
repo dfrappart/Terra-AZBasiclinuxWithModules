@@ -29,8 +29,9 @@ provider "azurerm" {
 module "ResourceGroup" {
 
     #Module Location
-    source = "./Modules/01 ResourceGroup"
-    #source = "github.com/dfrappart/Terra-AZModuletest//Modules//ResourceGroup/"
+    #source = "./Modules/01 ResourceGroup"
+    source = "github.com/dfrappart/Terra-AZBasiclinuxWithModules//Modules//01 ResourceGroup/"
+    
     #Module variable
     RGName                  = "${var.RGName}"
     RGLocation              = "${var.AzureRegion}"
@@ -44,8 +45,8 @@ module "ResourceGroup" {
 module "SampleArchi_vNet" {
 
     #Module location
-    source = "./Modules/02 vNet"
-    #source = "github.com/dfrappart/Terra-AZModuletest//Modules//vNet/"
+    #source = "./Modules/02 vNet"
+    source = "github.com/dfrappart/Terra-AZBasiclinuxWithModules//Modules//02 vNet/"
 
     #Module variable
     vNetName                = "SampleArchi_vNet"
@@ -63,8 +64,8 @@ module "SampleArchi_vNet" {
 module "DiagStorageAccount" {
 
     #Module location
-    source = "./Modules/03 StorageAccountGP"
-    #source = "github.com/dfrappart/Terra-AZModuletest//Modules//vNet/"
+    #source = "./Modules/03 StorageAccountGP"
+    source = "github.com/dfrappart/Terra-AZBasiclinuxWithModules//Modules//03 StorageAccountGP/"
 
     #Module variable
     StorageAccountName                  = "diaglogstorage"
@@ -81,8 +82,8 @@ module "DiagStorageAccount" {
 module "LogStorageContainer" {
 
     #Module location
-    source = "./Modules/04 StorageAccountContainer"
-    #source = "github.com/dfrappart/Terra-AZModuletest//Modules//vNet/"
+    #source = "./Modules/04 StorageAccountContainer"
+    source = "github.com/dfrappart/Terra-AZBasiclinuxWithModules//Modules//04 StorageAccountContainer/"
 
     #Module variable
     StorageContainerName = "logs"
@@ -99,8 +100,8 @@ module "LogStorageContainer" {
 module "FilesExchangeStorageAccount" {
 
     #Module location
-    source = "./Modules/03 StorageAccountGP"
-    #source = "github.com/dfrappart/Terra-AZModuletest//Modules//vNet/"
+    #source = "./Modules/03 StorageAccountGP"
+    source = "github.com/dfrappart/Terra-AZBasiclinuxWithModules//Modules//03 StorageAccountGP/"
 
     #Module variable
     StorageAccountName                  = "filestorage"
@@ -119,7 +120,8 @@ module "FilesExchangeStorageAccount" {
 module "InfraFileShare" {
 
     #Module location
-    source = "./Modules/05 StorageAccountShare"
+    #source = "./Modules/05 StorageAccountShare"
+    source = "github.com/dfrappart/Terra-AZBasiclinuxWithModules//Modules//05 StorageAccountShare"
     
     #Module variable
     ShareName           = "infrafileshare"
