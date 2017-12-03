@@ -9,7 +9,7 @@
 
 variable "RGName" {
   type    = "string"
-  default = "DefaultRSG"
+  default = "DefaultRG"
 }
 
 

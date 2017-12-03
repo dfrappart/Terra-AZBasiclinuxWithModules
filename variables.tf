@@ -66,7 +66,8 @@ variable "SubnetName" {
 
 #variable defining VM size
 variable "VMSize" {
- 
+    
+  type = "map"
   default = {
       "0" = "Standard_F1S"
       "1" = "Standard_F2s"
