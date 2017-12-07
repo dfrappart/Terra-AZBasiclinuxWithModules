@@ -16,8 +16,8 @@
 module "NSG_FE_Subnet" {
 
     #Module location
-    source = "./Modules/07 NSG"
-    #source = "github.com/dfrappart/Terra-AZModuletest//Modules//NSG/"
+    #source = "./Modules/07 NSG"
+    source = "github.com/dfrappart/Terra-AZBasiclinuxWithModules//Modules//07 NSG/"
 
     #Module variable
     NSGName                 = "NSG_${lookup(var.SubnetName, 0)}"
@@ -34,8 +34,8 @@ module "NSG_FE_Subnet" {
 module "FE_Subnet" {
 
     #Module location
-    source = "./Modules/06 Subnet"
-    #source = "github.com/dfrappart/Terra-AZModuletest//Modules//Subnet/"
+    #source = "./Modules/06 Subnet"
+    source = "github.com/dfrappart/Terra-AZBasiclinuxWithModules//Modules//06 Subnet"
 
     #Module variable
     SubnetName                  = "${lookup(var.SubnetName, 0)}"
@@ -58,8 +58,8 @@ module "FE_Subnet" {
 module "NSG_BE_Subnet" {
 
     #Module location
-    source = "./Modules/07 NSG"
-    #source = "github.com/dfrappart/Terra-AZModuletest//Modules//NSG/"
+    #source = "./Modules/07 NSG"
+    source = "github.com/dfrappart/Terra-AZBasiclinuxWithModules//Modules//07 NSG/"
 
     #Module variable
     NSGName                 = "NSG_${lookup(var.SubnetName, 1)}"
@@ -76,8 +76,8 @@ module "NSG_BE_Subnet" {
 module "BE_Subnet" {
 
     #Module location
-    source = "./Modules/06 Subnet"
-    #source = "github.com/dfrappart/Terra-AZModuletest//Modules//Subnet/"
+    #source = "./Modules/06 Subnet"
+    source = "github.com/dfrappart/Terra-AZBasiclinuxWithModules//Modules//06 Subnet"
 
     #Module variable
     SubnetName                  = "${lookup(var.SubnetName, 1)}"
