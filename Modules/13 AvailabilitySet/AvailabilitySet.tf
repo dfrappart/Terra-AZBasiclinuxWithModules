@@ -22,7 +22,11 @@ variable "ASLocation" {
 
 }
 
+variable "FaultDomainCount" {
 
+  type = "string"
+  default = 3
+}
 
 #Tag value to help identify the resource. 
 #Required tag are EnvironmentTAg defining the type of 
@@ -49,6 +53,7 @@ resource "azurerm_availability_set" "Terra-AS" {
     location                = "${var.ASLocation}"
     managed                 = "true"
     resource_group_name     = "${var.RGName}"
+    platform_fault_domain_count = "${var.FaultDomainCount}"
     tags {
         environment = "${var.EnvironmentTag}"
         usage       = "${var.EnvironmentUsageTag}"
