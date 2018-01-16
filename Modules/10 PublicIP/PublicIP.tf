@@ -58,7 +58,7 @@ resource "azurerm_public_ip" "TerraPublicIP" {
 
 
     count                           = "${var.PublicIPCount}"
-    name                            = "${var.PublicIPName}"
+    name                            = "${var.PublicIPName}${count.index+1}"
     location                        = "${var.PublicIPLocation}"
     resource_group_name             = "${var.RGName}"
     public_ip_address_allocation    = "static"
