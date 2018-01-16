@@ -65,7 +65,7 @@ resource "azurerm_network_interface" "TerraNICwpip" {
 
  
     count                   = "${var.NICCount}"
-    name                    = "${var.NICName}"
+    name                    = "${var.NICName}${count.index+1}"
     location                = "${var.NICLocation}"
     resource_group_name     = "${var.RGName}"
       
