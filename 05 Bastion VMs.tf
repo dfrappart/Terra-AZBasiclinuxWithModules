@@ -231,7 +231,7 @@ module "CustomScriptForBastion" {
 module "NetworkWatcherAgentForBastion" {
 
     #Module Location
-    source = "./Modules/20 LinuxNetworkWatcherAgent"
+    #source = "./Modules/20 LinuxNetworkWatcherAgent"
     source = "github.com/dfrappart/Terra-AZBasiclinuxWithModules//Modules//20 LinuxNetworkWatcherAgent"
 
 
