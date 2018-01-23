@@ -1,5 +1,5 @@
 ##############################################################
-#This module allow the creation of a RG
+#This module allows the creation of a RG
 ##############################################################
 
 
