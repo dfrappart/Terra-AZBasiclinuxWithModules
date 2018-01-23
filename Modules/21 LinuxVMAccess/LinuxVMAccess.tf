@@ -1,5 +1,5 @@
 ###################################################################################
-#This module allow the creation of VMAccess Agent for linux
+#This module allows the creation of VMAccess Agent for linux
 ###################################################################################
 
 #Variable declaration for Module

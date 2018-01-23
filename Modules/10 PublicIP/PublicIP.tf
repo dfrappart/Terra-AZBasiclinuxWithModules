@@ -1,5 +1,5 @@
 ######################################################################
-# This module allow the creation of a Public IP Address
+# This module allows the creation of a Public IP Address
 ######################################################################
 
 #Module variables

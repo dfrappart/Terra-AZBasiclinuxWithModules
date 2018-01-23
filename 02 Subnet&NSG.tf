@@ -1,5 +1,5 @@
 ######################################################
-# This file deploy the subnet and NSG for 
+# This file deploys the subnet and NSG for 
 #Basic linux architecture Architecture
 ######################################################
 

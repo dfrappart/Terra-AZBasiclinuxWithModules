@@ -1,5 +1,5 @@
 ##############################################################
-#This module allow the creation of an availability set for VMs
+#This module allows the creation of an availability set for VMs
 ##############################################################
 
 #Variable declaration for Module

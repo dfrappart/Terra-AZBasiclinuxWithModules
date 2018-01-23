@@ -1,5 +1,5 @@
 ##############################################################
-#This module allow the creation of VMs NICs
+#This module allows the creation of VMs NICs
 ##############################################################
 
 #Variables for NIC creation

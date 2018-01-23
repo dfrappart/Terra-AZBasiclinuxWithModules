@@ -1,5 +1,5 @@
 ###################################################################
-#This module allow the creation of a Managed disk with count option
+#This module allows the creation of a Managed disk with count option
 ###################################################################
 
 #Variable declaration for Module

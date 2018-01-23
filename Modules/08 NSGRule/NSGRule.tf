@@ -1,5 +1,5 @@
 ##############################################################
-#This module allow the creation of a Netsork Security Group Rule
+#This module allows the creation of a Netsork Security Group Rule
 ##############################################################
 
 #Variable declaration for Module

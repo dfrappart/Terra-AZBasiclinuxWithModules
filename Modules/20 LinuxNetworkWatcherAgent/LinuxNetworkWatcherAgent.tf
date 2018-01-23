@@ -1,5 +1,5 @@
 ###################################################################################
-#This module allow the creation of n CustomLinuxExtension and install Ansble
+#This module allows the creation of n CustomLinuxExtension and install Ansble
 ###################################################################################
 
 #Variable declaration for Module

@@ -1,5 +1,5 @@
 ###################################################################################
-#This module allow the creation of n Linux VM with 1 NIC
+#This module allows the creation of n Linux VM with 1 NIC
 ###################################################################################
 
 #Variable declaration for Module

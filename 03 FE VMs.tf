@@ -1,5 +1,5 @@
 ##############################################################
-#This file create FE Web servers
+#This file creates FE Web servers
 ##############################################################
 
 #NSG rules for FE servers

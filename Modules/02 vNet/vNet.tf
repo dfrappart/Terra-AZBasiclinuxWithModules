@@ -1,5 +1,5 @@
 ##############################################################
-#This module allow the creation of a vNEt
+#This module allows the creation of a vNEt
 ##############################################################
 
 #Variable declaration for Module
