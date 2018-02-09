@@ -30,6 +30,12 @@ variable "NSGid" {
 
 }
 
+variable "SubnetisGW" {
+  type    = "string"
+  default = "0"
+
+}
+
 variable "EnvironmentTag" {
   type    = "string"
   default = "Poc"
@@ -45,6 +51,7 @@ variable "EnvironmentUsageTag" {
 resource "azurerm_subnet" "TerraSubnet" {
 
 
+    count                       = "${var.SubnetisGW ? 0 : 1}"
     name                        = "${var.SubnetName}"
     resource_group_name         = "${var.RGName}"
     virtual_network_name        = "${var.vNetName}"
@@ -54,19 +61,33 @@ resource "azurerm_subnet" "TerraSubnet" {
 
 }
 
+
+resource "azurerm_subnet" "TerraSubnetGW" {
+
+
+    count                       = "${var.SubnetisGW ? 1 : 0}"
+    name                        = "${var.SubnetName}"
+    resource_group_name         = "${var.RGName}"
+    virtual_network_name        = "${var.vNetName}"
+    address_prefix              = "${var.Subnetaddressprefix}"
+    #network_security_group_id   = "${var.NSGid}"
+
+
+}
+
 #Output
 
 output "Name" {
 
-  value = "${azurerm_subnet.TerraSubnet.name}"
+  value = ["${azurerm_subnet.TerraSubnet.*.name}"]
 }
 
 output "Id" {
 
-  value = "${azurerm_subnet.TerraSubnet.id}"
+  value = ["${azurerm_subnet.TerraSubnet.*.id}"]
 }
 
 output "AddressPrefix" {
 
-  value = "${azurerm_subnet.TerraSubnet.address_prefix}"
+  value = ["${azurerm_subnet.TerraSubnet.*.address_prefix}"]
 }
