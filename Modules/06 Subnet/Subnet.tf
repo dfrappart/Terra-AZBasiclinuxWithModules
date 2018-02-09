@@ -79,15 +79,15 @@ resource "azurerm_subnet" "TerraSubnetGW" {
 
 output "Name" {
 
-  value = ["${azurerm_subnet.TerraSubnet.*.name}"]
+  value = "${element(azurerm_subnet.TerraSubnet.*.name,0)}"
 }
 
 output "Id" {
 
-  value = ["${azurerm_subnet.TerraSubnet.*.id}"]
+  value = "${element(azurerm_subnet.TerraSubnet.*.id,0)}"
 }
 
 output "AddressPrefix" {
 
-  value = ["${azurerm_subnet.TerraSubnet.*.address_prefix}"]
+  value = "${element(azurerm_subnet.TerraSubnet.*.address_prefix,0)}"
 }
