@@ -84,15 +84,15 @@ resource "azurerm_subnet" "TerraSubnetGW" {
 
 output "Name" {
 
-  value = "${var.SubnetisGW == "0" ? azurerm_subnet.TerraSubnet.[0].name : azurerm_subnet.TerraSubnetGW.[0].name}"
+  value = "${var.SubnetisGW == "0" ? azurerm_subnet.TerraSubnet.name[0] : azurerm_subnet.TerraSubnetGW.name[0]}"
 }
 
 output "Id" {
 
-  value = "${var.SubnetisGW == "0"? azurerm_subnet.TerraSubnet.[0].id : azurerm_subnet.TerraSubnetGW.[0].id}"
+  value = "${var.SubnetisGW == "0"? azurerm_subnet.TerraSubnet.id[0] : azurerm_subnet.TerraSubnetGW.id[0]}"
 }
 
 output "AddressPrefix" {
 
-  value = "${var.SubnetisGW == "0" ? azurerm_subnet.TerraSubnet.[0].address_prefix : azurerm_subnet.TerraSubnetGW.[0].address_prefix}"
+  value = "${var.SubnetisGW == "0" ? azurerm_subnet.TerraSubnet.address_prefix[0] : azurerm_subnet.TerraSubnetGW.address_prefix[0]}"
 }
