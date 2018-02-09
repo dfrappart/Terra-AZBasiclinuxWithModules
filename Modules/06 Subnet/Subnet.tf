@@ -27,6 +27,7 @@ variable "Subnetaddressprefix" {
 
 variable "NSGid" {
   type    = "string"
+  default = "default"
 
 }
 
