@@ -1,5 +1,5 @@
 ###################################################################################
-#This module allows the creation of n CustomLinuxExtension and install Ansible
+#This module allows the creation of n CustomLinuxExtension and install httpd
 ###################################################################################
 
 #Variable declaration for Module
@@ -55,8 +55,8 @@ resource "azurerm_virtual_machine_extension" "Terra-CustomScriptLinuxAgent" {
       settings = <<SETTINGS
         {   
         
-        "fileUris": [ "https://raw.githubusercontent.com/dfrappart/Terra-AZBasiclinux/master/deployansible.sh" ],
-        "commandToExecute": "bash deployansible.sh"
+        "fileUris": [ "https://raw.githubusercontent.com/dfrappart/Terra-AZBasiclinux/master/installapache.sh" ],
+        "commandToExecute": "bash installapache.sh"
         }
 SETTINGS
     

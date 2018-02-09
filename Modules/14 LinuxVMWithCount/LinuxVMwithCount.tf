@@ -125,6 +125,8 @@ variable "DiagnosticDiskURI" {
   
 }
 
+
+/*
 #The boot config file name
 
 variable "BootConfigScriptFileName" {
@@ -132,7 +134,7 @@ variable "BootConfigScriptFileName" {
   type    = "string"
 
 }
-
+*/
 
 variable "PublicSSHKey" {
 
@@ -209,7 +211,7 @@ resource "azurerm_virtual_machine" "TerraVMwithCount" {
         computer_name   = "${var.VMName}"
         admin_username  = "${var.VMAdminName}"
         admin_password  = "${var.VMAdminPassword}"
-        custom_data     = "${file("${var.BootConfigScriptFileName}")}"
+        #custom_data     = "${file("${var.BootConfigScriptFileName}")}"
 
     }
 

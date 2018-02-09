@@ -165,7 +165,7 @@ module "VMs_BEDB" {
     VMOffer                     = "${lookup(var.Offer, 4)}"
     VMsku                       = "${lookup(var.sku, 4)}"
     DiagnosticDiskURI           = "${module.DiagStorageAccount.PrimaryBlobEP}"
-    BootConfigScriptFileName    = "installmysql.sh"
+    #BootConfigScriptFileName    = "installmysql.sh"
     PublicSSHKey                = "${var.AzurePublicSSHKey}"
     EnvironmentTag              = "${var.EnvironmentTag}"
     EnvironmentUsageTag         = "${var.EnvironmentUsageTag}"
@@ -173,6 +173,23 @@ module "VMs_BEDB" {
 }
 
 #VM Agent
+module "CustomScriptForBEDB" {
+
+    #Module Location
+    #source = "./Modules/18 CustomLinuxExtension-mysql"
+    source = "github.com/dfrappart/Terra-AZBasiclinuxWithModules//Modules//18 CustomLinuxExtension-mysql"
+
+
+    #Module variables
+    AgentCount              = "2"
+    AgentName               = "BEDBCustomScript"
+    AgentLocation           = "${var.AzureRegion}"
+    AgentRG                 = "${module.ResourceGroup.Name}"
+    VMName                  = ["${module.VMs_BEDB.Name}"]
+    EnvironmentTag          = "${var.EnvironmentTag}"
+    EnvironmentUsageTag     = "${var.EnvironmentUsageTag}"
+}
+
 
 #Network Watcher Agent
 

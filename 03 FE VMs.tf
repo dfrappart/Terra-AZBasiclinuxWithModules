@@ -234,7 +234,7 @@ module "VMs_FEWEB" {
     VMOffer                     = "${lookup(var.Offer, 4)}"
     VMsku                       = "${lookup(var.sku, 4)}"
     DiagnosticDiskURI           = "${module.DiagStorageAccount.PrimaryBlobEP}"
-    BootConfigScriptFileName    = "installapache.sh"
+    #BootConfigScriptFileName    = "installapache.sh"
     PublicSSHKey                = "${var.AzurePublicSSHKey}"
     EnvironmentTag              = "${var.EnvironmentTag}"
     EnvironmentUsageTag         = "${var.EnvironmentUsageTag}"
@@ -242,6 +242,24 @@ module "VMs_FEWEB" {
 }
 
 #VM Agent
+
+module "CustomScriptForFEWeb" {
+
+    #Module Location
+    #source = "./Modules/22 CustomLinuxExtension-Nginx"
+    source = "github.com/dfrappart/Terra-AZBasiclinuxWithModules//Modules//22 CustomLinuxExtension-Nginx"
+
+
+    #Module variables
+    AgentCount              = "3"
+    AgentName               = "WebCustomScript"
+    AgentLocation           = "${var.AzureRegion}"
+    AgentRG                 = "${module.ResourceGroup.Name}"
+    VMName                  = ["${module.VMs_FEWEB.Name}"]
+    EnvironmentTag          = "${var.EnvironmentTag}"
+    EnvironmentUsageTag     = "${var.EnvironmentUsageTag}"
+}
+
 
 #Network Watcher Agent
 
