@@ -247,7 +247,7 @@ module "CustomScriptForFEWeb" {
 
     #Module Location
     #source = "./Modules/22 CustomLinuxExtension-Nginx"
-    source = "github.com/dfrappart/Terra-AZBasiclinuxWithModules//Modules//17 CustomLinuxExtension-httpd"
+    source = "github.com/dfrappart/Terra-AZBasiclinuxWithModules//Modules//22 CustomLinuxExtensionScript-Nginx"
 
 
     #Module variables
