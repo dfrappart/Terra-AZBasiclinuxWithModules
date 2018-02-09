@@ -55,7 +55,7 @@ resource "azurerm_virtual_machine_extension" "Terra-CustomScriptLinuxAgent" {
       settings = <<SETTINGS
         {   
         
-        "fileUris": [ "https://raw.githubusercontent.com/dfrappart/Terra-AZBasiclinux/master/installmysql.sh" ],
+        "fileUris": [ "https://raw.githubusercontent.com/dfrappart/Terra-AZBasiclinux/master/Scripts/installmysql.sh" ],
         "commandToExecute": "bash installmysql.sh"
         }
 SETTINGS
