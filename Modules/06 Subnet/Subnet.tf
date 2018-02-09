@@ -80,33 +80,19 @@ resource "azurerm_subnet" "TerraSubnetGW" {
 
 #Output
 
-output "NameGW" {
-
-  value = "${var.SubnetisGW == "1" ? element(azurerm_subnet.TerraSubnetGW.*.name,0) : "No GW Subnet"}"
-}
-
-output "IdGW" {
-
-  value = "${var.SubnetisGW == "1"? element(azurerm_subnet.TerraSubnetGW.*.id,0) : "No GW Subnet"}"
-}
-
-output "AddressPrefixGW" {
-
-  value = "${var.SubnetisGW == "1" ? element(azurerm_subnet.TerraSubnetGW.*.address_prefix,0) : "No GW Subnet"}"
-}
 
 
 output "Name" {
 
-  value = "${var.SubnetisGW == "0" ? element(azurerm_subnet.TerraSubnet.*.name,0) : "GW Subnet"}"
+  value = "${var.SubnetisGW == "0" ? azurerm_subnet.TerraSubnet.[0].name : azurerm_subnet.TerraSubnetGW.[0].name}"
 }
 
 output "Id" {
 
-  value = "${var.SubnetisGW == "0"? element(azurerm_subnet.TerraSubnet.*.id,0) : "GW Subnet"}"
+  value = "${var.SubnetisGW == "0"? azurerm_subnet.TerraSubnet.[0].id : azurerm_subnet.TerraSubnetGW.[0].id}"
 }
 
 output "AddressPrefix" {
 
-  value = "${var.SubnetisGW == "0" ? element(azurerm_subnet.TerraSubnet.*.address_prefix,0) : "GW Subnet"}"
+  value = "${var.SubnetisGW == "0" ? azurerm_subnet.TerraSubnet.[0].address_prefix : azurerm_subnet.TerraSubnetGW.[0].address_prefix}"
 }
