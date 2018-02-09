@@ -30,7 +30,7 @@ variable "EnvironmentUsageTag" {
 variable "RGName" {
 
     type    = "string"
-    default = "RG-001"
+    default = "RG-BasicLinuxwithModules"
 }
 
 #Variable defining the vnet ip range

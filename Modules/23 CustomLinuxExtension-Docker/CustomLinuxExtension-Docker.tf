@@ -55,7 +55,7 @@ resource "azurerm_virtual_machine_extension" "Terra-CustomScriptLinuxAgent" {
       settings = <<SETTINGS
         {   
         
-        "fileUris": [ "https://raw.githubusercontent.com/dfrappart/Terra-AZBasiclinux/master/Scripts/installdocker.sh" ],
+        "fileUris": [ "https://raw.githubusercontent.com/dfrappart/Terra-AZBasiclinuxWithModules/master/Scripts/installdocker.sh" ],
         "commandToExecute": "bash installdocker.sh"
         }
 SETTINGS

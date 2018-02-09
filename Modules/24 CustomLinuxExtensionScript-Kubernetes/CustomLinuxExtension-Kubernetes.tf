@@ -55,7 +55,7 @@ resource "azurerm_virtual_machine_extension" "Terra-CustomScriptLinuxAgent" {
       settings = <<SETTINGS
         {   
         
-        "fileUris": [ "https://raw.githubusercontent.com/dfrappart/Terra-AZBasiclinux/master/Scripts/installkubernetes.sh" ],
+        "fileUris": [ "https://raw.githubusercontent.com/dfrappart/Terra-AZBasiclinuxWithModules/master/Scripts/installkubernetes.sh" ],
         "commandToExecute": "bash installkubernetes.sh"
         }
 SETTINGS
