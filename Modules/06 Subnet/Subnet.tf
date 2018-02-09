@@ -64,7 +64,7 @@ resource "azurerm_subnet" "TerraSubnet" {
 }
 
 
-resource "azurerm_subnet" "TerraSubnet" {
+resource "azurerm_subnet" "TerraSubnetGW" {
 
 #Use conditional to select if the Subnet is a Gateway subnet and should have a NSG
 #If SubnetisGW exist, count is set to 1 for this resource which is a subnet without NSG
@@ -82,15 +82,15 @@ resource "azurerm_subnet" "TerraSubnet" {
 
 output "Name" {
 
-  value = "${element(azurerm_subnet.TerraSubnet.*.name,0)}"
+  value = "${var.SubnetisGW ? element(azurerm_subnet.TerraSubnetGW.*.name,0) : element(azurerm_subnet.TerraSubnet.*.name,0)}"
 }
 
 output "Id" {
 
-  value = "${element(azurerm_subnet.TerraSubnet.*.id,0)}"
+  value = "${var.SubnetisGW ? element(azurerm_subnet.TerraSubnetGW.*.id,0) : element(azurerm_subnet.TerraSubnet.*.name,0)}"
 }
 
 output "AddressPrefix" {
 
-  value = "${element(azurerm_subnet.TerraSubnet.*.address_prefix,0)}"
+  value = "${var.SubnetisGW ? element(azurerm_subnet.TerraSubnetGW.*.address_prefix,0) : element(azurerm_subnet.TerraSubnet.*.name,0)}"
 }
