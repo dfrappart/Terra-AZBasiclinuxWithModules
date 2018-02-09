@@ -51,7 +51,8 @@ variable "EnvironmentUsageTag" {
 
 resource "azurerm_subnet" "TerraSubnet" {
 
-
+#Use conditional to select if the Subnet is a Gateway subnet and should have a NSG
+#If SubnetisGW exist, count is set to 0 for this resource which is a subnet with NSG
     count                       = "${var.SubnetisGW ? 0 : 1}"
     name                        = "${var.SubnetName}"
     resource_group_name         = "${var.RGName}"
@@ -63,9 +64,10 @@ resource "azurerm_subnet" "TerraSubnet" {
 }
 
 
-resource "azurerm_subnet" "TerraSubnetGW" {
+resource "azurerm_subnet" "TerraSubnet" {
 
-
+#Use conditional to select if the Subnet is a Gateway subnet and should have a NSG
+#If SubnetisGW exist, count is set to 1 for this resource which is a subnet without NSG
     count                       = "${var.SubnetisGW ? 1 : 0}"
     name                        = "${var.SubnetName}"
     resource_group_name         = "${var.RGName}"
