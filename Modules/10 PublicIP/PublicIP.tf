@@ -91,11 +91,12 @@ output "Ids" {
   value = ["${azurerm_public_ip.TerraPublicIP.*.id}"]
 }
 
+/*
 output "IPAddresses" {
 
   value = ["${azurerm_public_ip.TerraPublicIP.*.ip_address}"]
 }
-
+*/
 output "fqdns" {
 
   value = ["${azurerm_public_ip.TerraPublicIP.*.fqdn}"]
