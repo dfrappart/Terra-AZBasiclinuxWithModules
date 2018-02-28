@@ -70,7 +70,7 @@ resource "azurerm_public_ip" "TerraPublicIP" {
     location                        = "${var.PublicIPLocation}"
     resource_group_name             = "${var.RGName}"
     public_ip_address_allocation    = "${var.PIPAddressAllocation}"
-    domain_name_label               = "${random_string.PublicIPfqdnprefix.result}${var.PublicIPName}"
+    domain_name_label               = "${random_string.PublicIPfqdnprefix.result}${var.PublicIPName}${count.index+1}"
 
     tags {
     environment = "${var.EnvironmentTag}"
