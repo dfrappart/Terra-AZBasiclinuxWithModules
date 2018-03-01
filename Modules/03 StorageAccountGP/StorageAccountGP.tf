@@ -55,20 +55,12 @@ variable "EnvironmentUsageTag" {
 
 #Storage account creation
 
-resource "random_string" "StorageAccountfqdnprefix" {
 
-
-
-    length      = 5
-    special     = false
-    upper       = false
-    number      = false
-}
 
 
 resource "azurerm_storage_account" "Terra-STOA" {
 
-    name                        = "${random_string.StorageAccountfqdnprefix.result}${var.StorageAccountName}" 
+    name                        = "stoa${lower(var.StorageAccountName)}${lower(var.StorageAccountTier)}${lower(var.StorageReplicationType)}" 
     resource_group_name         = "${var.RGName}"
     location                    = "${var.StorageAccountLocation}"
     account_tier                = "${var.StorageAccountTier}"
