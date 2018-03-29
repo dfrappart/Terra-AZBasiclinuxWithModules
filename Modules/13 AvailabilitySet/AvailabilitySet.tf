@@ -6,25 +6,21 @@
 
 #The AS name
 variable "ASName" {
-  type    = "string"
-
+  type = "string"
 }
 
 #The RG in which the AS is attached to
 variable "RGName" {
-  type    = "string"
-
+  type = "string"
 }
 
 #The location in which the AS is attached to
 variable "ASLocation" {
-  type    = "string"
-
+  type = "string"
 }
 
 variable "FaultDomainCount" {
-
-  type = "string"
+  type    = "string"
   default = 3
 }
 
@@ -43,32 +39,27 @@ variable "EnvironmentUsageTag" {
   default = "Poc usage only"
 }
 
-
-
 # Availability Set Creation
 
 resource "azurerm_availability_set" "Terra-AS" {
+  name                        = "${var.ASName}"
+  location                    = "${var.ASLocation}"
+  managed                     = "true"
+  resource_group_name         = "${var.RGName}"
+  platform_fault_domain_count = "${var.FaultDomainCount}"
 
-    name                    = "${var.ASName}"
-    location                = "${var.ASLocation}"
-    managed                 = "true"
-    resource_group_name     = "${var.RGName}"
-    platform_fault_domain_count = "${var.FaultDomainCount}"
-    tags {
-        environment = "${var.EnvironmentTag}"
-        usage       = "${var.EnvironmentUsageTag}"
+  tags {
+    environment = "${var.EnvironmentTag}"
+    usage       = "${var.EnvironmentUsageTag}"
   }
 }
 
 #Output
 
-
 output "Name" {
-
   value = "${azurerm_availability_set.Terra-AS.name}"
 }
 
 output "Id" {
-
   value = "${azurerm_availability_set.Terra-AS.id}"
 }
