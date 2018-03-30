@@ -60,6 +60,4 @@ output "RGName" {
   value = "${var.AgentRG}"
 }
 
-output "RGName" {
-  value = "${var.AgentRG}"
-}
+
