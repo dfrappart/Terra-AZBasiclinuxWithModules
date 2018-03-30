@@ -65,6 +65,5 @@ output "Id" {
 }
 
 output "RGName" {
-  value = "${${azurerm_availability_set.Terra-AS.resource_group_name}"
+  value = "${azurerm_availability_set.Terra-AS.resource_group_name}"
 }
-
