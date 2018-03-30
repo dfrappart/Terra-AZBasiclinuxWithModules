@@ -109,7 +109,6 @@ module "AS_Bastion" {
   ASLocation          = "${var.AzureRegion}"
   EnvironmentTag      = "${var.EnvironmentTag}"
   EnvironmentUsageTag = "${var.EnvironmentUsageTag}"
-  FaultDomainCount    = "2"
 }
 
 #NIC Creation
