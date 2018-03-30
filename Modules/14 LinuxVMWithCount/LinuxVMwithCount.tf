@@ -202,5 +202,5 @@ output "Id" {
 }
 
 output "RGName" {
-  value = "${var.RGName}"
+  value = "${var.VMRG}"
 }
