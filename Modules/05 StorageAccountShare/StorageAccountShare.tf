@@ -7,22 +7,19 @@
 #The Azure File Name
 
 variable "ShareName" {
-  type    = "string"
-
+  type = "string"
 }
 
 #The RG Name
 
 variable "RGName" {
-  type    = "string"
-
+  type = "string"
 }
 
 #The Storage Account Name
 
 variable "StorageAccountName" {
-  type    = "string"
-
+  type = "string"
 }
 
 #The Azure File Quota
@@ -30,9 +27,7 @@ variable "StorageAccountName" {
 variable "Quota" {
   type    = "string"
   default = "0"
-
 }
-
 
 #Varaibles defining Tags
 
@@ -49,19 +44,20 @@ variable "EnvironmentUsageTag" {
 #Storage Share creation
 
 resource azurerm_storage_share "Terra-AzureFile" {
-
-    name                    = "${var.ShareName}"
-    resource_group_name     = "${var.RGName}"
-    storage_account_name    = "${var.StorageAccountName}"
-    quota                   = "${var.Quota}"
+  name                 = "${var.ShareName}"
+  resource_group_name  = "${var.RGName}"
+  storage_account_name = "${var.StorageAccountName}"
+  quota                = "${var.Quota}"
 }
 
 output "Id" {
-
   value = "${azurerm_storage_share.Terra-AzureFile.id}"
 }
 
 output "URL" {
-
   value = "${azurerm_storage_share.Terra-AzureFile.url}"
+}
+
+output "RGName" {
+  value = "${azurerm_storage_share.Terra-AzureFile.resource_group_name}"
 }

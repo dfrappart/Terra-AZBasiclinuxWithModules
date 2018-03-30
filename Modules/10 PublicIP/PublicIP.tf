@@ -7,29 +7,26 @@
 #Public IP Count
 
 variable "PublicIPCount" {
-  type  = "string"
+  type    = "string"
   default = "1"
-
 }
+
 #The Public IP Name
 
 variable "PublicIPName" {
-  type    = "string"
-
+  type = "string"
 }
 
 #The Public IP Location
 
 variable "PublicIPLocation" {
-  type    = "string"
-
+  type = "string"
 }
 
 #The RG in which the Public IP resides
 
 variable "RGName" {
-  type    = "string"
-
+  type = "string"
 }
 
 #The IP Address allocation. Can be dynamic or static
@@ -37,7 +34,6 @@ variable "RGName" {
 variable "PIPAddressAllocation" {
   type    = "string"
   default = "static"
-
 }
 
 variable "EnvironmentTag" {
@@ -53,41 +49,33 @@ variable "EnvironmentUsageTag" {
 # Creating Public IP 
 
 resource "random_string" "PublicIPfqdnprefix" {
-
-
-
-    length = 5
-    special = false
-    upper = false
-    number = false
+  length  = 5
+  special = false
+  upper   = false
+  number  = false
 }
 
 resource "azurerm_public_ip" "TerraPublicIP" {
+  count                        = "${var.PublicIPCount}"
+  name                         = "${var.PublicIPName}${count.index+1}"
+  location                     = "${var.PublicIPLocation}"
+  resource_group_name          = "${var.RGName}"
+  public_ip_address_allocation = "${var.PIPAddressAllocation}"
+  domain_name_label            = "${random_string.PublicIPfqdnprefix.result}${var.PublicIPName}${count.index+1}"
 
-
-    count                           = "${var.PublicIPCount}"
-    name                            = "${var.PublicIPName}${count.index+1}"
-    location                        = "${var.PublicIPLocation}"
-    resource_group_name             = "${var.RGName}"
-    public_ip_address_allocation    = "${var.PIPAddressAllocation}"
-    domain_name_label               = "${random_string.PublicIPfqdnprefix.result}${var.PublicIPName}${count.index+1}"
-
-    tags {
+  tags {
     environment = "${var.EnvironmentTag}"
     usage       = "${var.EnvironmentUsageTag}"
-    }   
-
+  }
 }
 
 #Module output
 
 output "Names" {
-
   value = ["${azurerm_public_ip.TerraPublicIP.*.name}"]
 }
 
 output "Ids" {
-
   value = ["${azurerm_public_ip.TerraPublicIP.*.id}"]
 }
 
@@ -98,6 +86,9 @@ output "IPAddresses" {
 }
 */
 output "fqdns" {
-
   value = ["${azurerm_public_ip.TerraPublicIP.*.fqdn}"]
+}
+
+output "RGName" {
+  value = "${var.RGName}"
 }

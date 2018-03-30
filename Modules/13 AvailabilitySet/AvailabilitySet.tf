@@ -63,3 +63,8 @@ output "Name" {
 output "Id" {
   value = "${azurerm_availability_set.Terra-AS.id}"
 }
+
+output "RGName" {
+  value = "${${azurerm_availability_set.Terra-AS.resource_group_name}"
+}
+

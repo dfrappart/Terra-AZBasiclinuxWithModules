@@ -6,47 +6,38 @@
 
 #The NIC count
 variable "NICCount" {
-  type    = "string"
-
+  type = "string"
 }
 
 #The NIC name
 variable "NICName" {
-  type    = "string"
-
+  type = "string"
 }
-
 
 #The NIC location
 variable "NICLocation" {
-  type    = "string"
-
+  type = "string"
 }
 
 #The resource Group in which the NIC are attached to
 variable "RGName" {
-  type    = "string"
-
+  type = "string"
 }
 
 #The subnet reference
 variable "SubnetId" {
-  type    = "string"
-
+  type = "string"
 }
 
 #The public IP Reference
 
 variable "PublicIPId" {
-  type    = "list"
-
+  type = "list"
 }
-
 
 variable "Primary" {
   type    = "string"
   default = "true"
-
 }
 
 variable "EnvironmentTag" {
@@ -62,43 +53,37 @@ variable "EnvironmentUsageTag" {
 # NIC Creation 
 
 resource "azurerm_network_interface" "TerraNICwpip" {
+  count               = "${var.NICCount}"
+  name                = "${var.NICName}${count.index+1}"
+  location            = "${var.NICLocation}"
+  resource_group_name = "${var.RGName}"
 
- 
-    count                   = "${var.NICCount}"
-    name                    = "${var.NICName}${count.index+1}"
-    location                = "${var.NICLocation}"
-    resource_group_name     = "${var.RGName}"
-      
+  ip_configuration {
+    name                          = "ConfigIP-NIC-${var.NICName}"
+    subnet_id                     = "${var.SubnetId}"
+    private_ip_address_allocation = "dynamic"
+    public_ip_address_id          = "${element(var.PublicIPId,count.index)}"
+    primary                       = "${var.Primary}"
+  }
 
-    ip_configuration {
-
-        name                                        = "ConfigIP-NIC-${var.NICName}"
-        subnet_id                                   = "${var.SubnetId}"
-        private_ip_address_allocation               = "dynamic"
-        public_ip_address_id                        = "${element(var.PublicIPId,count.index)}"
-        primary                                     = "${var.Primary}"        
-            }
-
-    tags {
+  tags {
     environment = "${var.EnvironmentTag}"
     usage       = "${var.EnvironmentUsageTag}"
-    }   
-
-
+  }
 }
 
 output "Names" {
-
   value = ["${azurerm_network_interface.TerraNICwpip.*.name}"]
 }
 
 output "Ids" {
-
   value = ["${azurerm_network_interface.TerraNICwpip.*.id}"]
 }
 
 output "PrivateIPs" {
-
   value = ["${azurerm_network_interface.TerraNICwpip.*.private_ip_address}"]
 }
 
+output "RGName" {
+  value = "${var.RGName}"
+}

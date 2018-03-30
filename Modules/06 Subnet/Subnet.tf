@@ -9,28 +9,22 @@ variable "SubnetName" {
   default = "DefaultSubnet"
 }
 
-
 variable "RGName" {
   type    = "string"
   default = "DefaultRSG"
 }
 
 variable "vNetName" {
-  type    = "string"
-
+  type = "string"
 }
 
 variable "Subnetaddressprefix" {
-  type    = "string"
-
+  type = "string"
 }
 
 variable "NSGid" {
-  type    = "string"
-
-
+  type = "string"
 }
-
 
 variable "EnvironmentTag" {
   type    = "string"
@@ -45,35 +39,27 @@ variable "EnvironmentUsageTag" {
 #Creation fo the subnet
 
 resource "azurerm_subnet" "TerraSubnet" {
-
-
-
-    name                        = "${var.SubnetName}"
-    resource_group_name         = "${var.RGName}"
-    virtual_network_name        = "${var.vNetName}"
-    address_prefix              = "${var.Subnetaddressprefix}"
-    network_security_group_id   = "${var.NSGid}"
-
-
+  name                      = "${var.SubnetName}"
+  resource_group_name       = "${var.RGName}"
+  virtual_network_name      = "${var.vNetName}"
+  address_prefix            = "${var.Subnetaddressprefix}"
+  network_security_group_id = "${var.NSGid}"
 }
-
-
 
 #Output
 
-
-
 output "Name" {
-
   value = "${azurerm_subnet.TerraSubnet.name}"
 }
 
 output "Id" {
-
   value = "${azurerm_subnet.TerraSubnet.id}"
 }
 
 output "AddressPrefix" {
-
   value = "${azurerm_subnet.TerraSubnet.address_prefix}"
+}
+
+output "RGName" {
+  value = "${azurerm_subnet.TerraSubnet.resource_group_name}"
 }

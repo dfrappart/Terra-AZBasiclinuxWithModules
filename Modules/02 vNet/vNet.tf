@@ -9,8 +9,6 @@ variable "vNetName" {
   default = "DefaultvNet"
 }
 
-
-
 variable "RGName" {
   type    = "string"
   default = "DefaultRSG"
@@ -39,33 +37,31 @@ variable "EnvironmentUsageTag" {
 #Creating a vNet
 
 resource "azurerm_virtual_network" "Terra-vNet" {
+  name                = "${var.vNetName}"
+  resource_group_name = "${var.RGName}"
+  address_space       = "${var.vNetAddressSpace}"
+  location            = "${var.vNetLocation}"
 
-    name                = "${var.vNetName}"
-    resource_group_name = "${var.RGName}"
-    address_space       = "${var.vNetAddressSpace}"
-    location            = "${var.vNetLocation}"
-
-    tags {
+  tags {
     environment = "${var.EnvironmentTag}"
     usage       = "${var.EnvironmentUsageTag}"
-    }   
+  }
 }
-
 
 #Output for the vNET module
 
 output "Name" {
-
   value = "${azurerm_virtual_network.Terra-vNet.name}"
 }
 
 output "Id" {
-
   value = "${azurerm_virtual_network.Terra-vNet.id}"
 }
 
-
 output "AddressSpace" {
-
   value = "${azurerm_virtual_network.Terra-vNet.address_space}"
+}
+
+output "RGName" {
+  value = "${azurerm_virtual_network.Terra-vNet.resource_group_name}"
 }

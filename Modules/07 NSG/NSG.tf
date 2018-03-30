@@ -9,8 +9,6 @@ variable "NSGName" {
   default = "DefaultNSG"
 }
 
-
-
 variable "RGName" {
   type    = "string"
   default = "DefaultRSG"
@@ -33,27 +31,26 @@ variable "EnvironmentUsageTag" {
 
 #Creation fo the NSG
 resource "azurerm_network_security_group" "Terra-NSG" {
+  name                = "${var.NSGName}"
+  location            = "${var.NSGLocation}"
+  resource_group_name = "${var.RGName}"
 
-    name                = "${var.NSGName}"
-    location            = "${var.NSGLocation}"
-    resource_group_name = "${var.RGName}"
-
-
-    tags {
-        environment = "${var.EnvironmentTag}"
-        usage       = "${var.EnvironmentUsageTag}"
-    }  
+  tags {
+    environment = "${var.EnvironmentTag}"
+    usage       = "${var.EnvironmentUsageTag}"
+  }
 }
-
 
 #Output for the NSG module
 
 output "Name" {
-
   value = "${azurerm_network_security_group.Terra-NSG.name}"
 }
 
 output "Id" {
+  value = "${azurerm_network_security_group.Terra-NSG.id}"
+}
 
-  value ="${azurerm_network_security_group.Terra-NSG.id}"
+output "RGName" {
+  value = "${azurerm_network_security_group.Terra-NSG.resource_group_name}"
 }

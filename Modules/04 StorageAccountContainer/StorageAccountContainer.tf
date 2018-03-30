@@ -7,22 +7,19 @@
 #The ST container
 
 variable "StorageContainerName" {
-  type    = "string"
-
+  type = "string"
 }
 
 #The RG Name
 
 variable "RGName" {
-  type    = "string"
-
+  type = "string"
 }
 
 #The Storage Account Name
 
 variable "StorageAccountName" {
-  type    = "string"
-
+  type = "string"
 }
 
 #The Storage Account container access type
@@ -30,9 +27,7 @@ variable "StorageAccountName" {
 variable "AccessType" {
   type    = "string"
   default = "private"
-
 }
-
 
 #Varaibles defining Tags
 
@@ -49,21 +44,20 @@ variable "EnvironmentUsageTag" {
 #Storage container creation
 
 resource "azurerm_storage_container" "Terra-STC" {
-
-    name                        = "${var.StorageContainerName}" 
-    resource_group_name         = "${var.RGName}"
-    storage_account_name        = "${var.StorageAccountName}"
-    container_access_type       = "${var.AccessType}"
-
-
+  name                  = "${var.StorageContainerName}"
+  resource_group_name   = "${var.RGName}"
+  storage_account_name  = "${var.StorageAccountName}"
+  container_access_type = "${var.AccessType}"
 }
 
 output "Id" {
-
   value = "${azurerm_storage_container.Terra-STC.id}"
 }
 
 output "Properties" {
-
   value = "${azurerm_storage_container.Terra-STC.properties}"
+}
+
+output "RGName" {
+  value = "${azurerm_storage_container.Terra-STC.resource_group_name}"
 }

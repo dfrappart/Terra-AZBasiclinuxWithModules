@@ -6,42 +6,36 @@
 
 #The count value
 variable "Manageddiskcount" {
-  type    = "string"
-
+  type = "string"
 }
-
 
 #The Managed Disk name
 variable "ManageddiskName" {
-  type    = "string"
-
+  type = "string"
 }
 
 #The RG in which the MD is attached to
 variable "RGName" {
-  type    = "string"
-
+  type = "string"
 }
 
 #The location in which the MD is attached to
 variable "ManagedDiskLocation" {
-  type    = "string"
-
+  type = "string"
 }
 
 #The underlying Storage account type. Value accepted are Standard_LRS and Premium_LRS
 variable "StorageAccountType" {
-  type    = "string"
-
+  type = "string"
 }
+
 #The create option. Value accepted
 #Import - Import a VHD file in to the managed disk (VHD specified with source_uri).
 #Empty - Create an empty managed disk.
 #Copy - Copy an existing managed disk or snapshot (specified with source_resource_id). 
 
 variable "CreateOption" {
-  type    = "string"
-
+  type = "string"
 }
 
 # Specifies the size of the managed disk to create in gigabytes. 
@@ -52,10 +46,8 @@ variable "CreateOption" {
 #corresponding value to storage tiers desired
 
 variable "DiskSizeInGB" {
-  type    = "string"
-
+  type = "string"
 }
-
 
 variable "EnvironmentTag" {
   type    = "string"
@@ -67,44 +59,37 @@ variable "EnvironmentUsageTag" {
   default = "Poc usage only"
 }
 
-
-
-
-
 #ManagedDisk creation
 
 resource "azurerm_managed_disk" "TerraManagedDiskwithcount" {
+  count                = "${var.Manageddiskcount}"
+  name                 = "${var.ManageddiskName}${count.index+1}"
+  location             = "${var.ManagedDiskLocation}"
+  resource_group_name  = "${var.RGName}"
+  storage_account_type = "${var.StorageAccountType}"
+  create_option        = "${var.CreateOption}"
+  disk_size_gb         = "${var.DiskSizeInGB}"
 
-
-    count                   = "${var.Manageddiskcount}"
-    name                    = "${var.ManageddiskName}${count.index+1}"
-    location                = "${var.ManagedDiskLocation}"
-    resource_group_name     = "${var.RGName}"
-    storage_account_type    = "${var.StorageAccountType}"
-    create_option           = "${var.CreateOption}"
-    disk_size_gb            = "${var.DiskSizeInGB}"
-
-    tags {
+  tags {
     environment = "${var.EnvironmentTag}"
     usage       = "${var.EnvironmentUsageTag}"
   }
-    
 }
-
 
 #Output
 
 output "Names" {
-
   value = ["${azurerm_managed_disk.TerraManagedDiskwithcount.*.name}"]
 }
 
 output "Ids" {
-
   value = ["${azurerm_managed_disk.TerraManagedDiskwithcount.*.id}"]
 }
 
 output "Sizes" {
-
   value = ["${azurerm_managed_disk.TerraManagedDiskwithcount.*.disk_size_gb}"]
+}
+
+output "RGName" {
+  value = "${var.RGName}"
 }
