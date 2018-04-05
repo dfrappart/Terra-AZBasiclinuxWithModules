@@ -51,7 +51,7 @@ variable "EnvironmentUsageTag" {
 #Storage account creation
 
 resource "azurerm_storage_account" "Terra-STOA" {
-  name                     = "stoa${lower(var.StorageAccountName)}${lower(var.StorageAccountTier)}"
+  name                     = "stoa${lower(var.StorageAccountName)}"
   resource_group_name      = "${var.RGName}"
   location                 = "${var.StorageAccountLocation}"
   account_tier             = "${var.StorageAccountTier}"
