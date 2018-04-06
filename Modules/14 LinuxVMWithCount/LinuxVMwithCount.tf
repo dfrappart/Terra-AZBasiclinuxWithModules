@@ -117,6 +117,13 @@ variable "PublicSSHKey" {
   type = "string"
 }
 
+#Variable defining the PAssword activation
+
+variable "PasswordDisabled" {
+  type    = "string"
+  default = "true"
+}
+
 #Tag info
 
 variable "EnvironmentTag" {
@@ -179,7 +186,7 @@ resource "azurerm_virtual_machine" "TerraVMwithCount" {
   }
 
   os_profile_linux_config {
-    disable_password_authentication = true
+    disable_password_authentication = "${var.PasswordDisabled}"
 
     ssh_keys {
       path     = "/home/${var.VMAdminName}/.ssh/authorized_keys"
