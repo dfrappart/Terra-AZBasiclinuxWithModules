@@ -13,7 +13,7 @@ variable "AzureRegion" {
 
 variable "EnvironmentTag" {
   type    = "string"
-  default = "Design"
+  default = "BasicLinux"
 }
 
 variable "EnvironmentUsageTag" {

@@ -36,6 +36,13 @@ variable "PIPAddressAllocation" {
   default = "static"
 }
 
+#The IP Address sku. Can be basic or standard
+
+variable "PIPAddressSku" {
+  type    = "string"
+  default = "basic"
+}
+
 variable "EnvironmentTag" {
   type    = "string"
   default = "Poc"
@@ -47,13 +54,14 @@ variable "EnvironmentUsageTag" {
 }
 
 # Creating Public IP 
-
+/*
 resource "random_string" "PublicIPfqdnprefix" {
   length  = 5
   special = false
   upper   = false
   number  = false
 }
+*/
 
 resource "azurerm_public_ip" "TerraPublicIP" {
   count                        = "${var.PublicIPCount}"
@@ -61,7 +69,8 @@ resource "azurerm_public_ip" "TerraPublicIP" {
   location                     = "${var.PublicIPLocation}"
   resource_group_name          = "${var.RGName}"
   public_ip_address_allocation = "${var.PIPAddressAllocation}"
-  domain_name_label            = "${random_string.PublicIPfqdnprefix.result}${var.PublicIPName}${count.index+1}"
+  sku                          = "${var.PIPAddressSku}"
+  domain_name_label            = "${lower(${var.EnvironmentTag}${var.PublicIPName}${count.index+1})}"
 
   tags {
     environment = "${var.EnvironmentTag}"
