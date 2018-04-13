@@ -42,7 +42,7 @@ module "SampleArchi_vNet" {
   source = "github.com/dfrappart/Terra-AZBasiclinuxWithModules//Modules//02 vNet/"
 
   #Module variable
-  vNetName            = "SampleArchi_vNet"
+  vNetName            = "VNet_${var.EnvironmentTag}"
   RGName              = "${module.ResourceGroup.Name}"
   vNetLocation        = "${var.AzureRegion}"
   vNetAddressSpace    = "${var.vNetIPRange}"

@@ -70,7 +70,7 @@ resource "azurerm_public_ip" "TerraPublicIP" {
   resource_group_name          = "${var.RGName}"
   public_ip_address_allocation = "${var.PIPAddressAllocation}"
   sku                          = "${var.PIPAddressSku}"
-  domain_name_label            = "${lower(${var.EnvironmentTag}${var.PublicIPName}${count.index+1})}"
+  domain_name_label            = "${lower(var.EnvironmentTag)}${lower(var.PublicIPName)}${count.index+1}"
 
   tags {
     environment = "${var.EnvironmentTag}"
