@@ -25,7 +25,7 @@ module "AllowSSHFromInternetBastionIn" {
 
 module "AllowSSHFromBastiontoFEOut" {
   #Module source
-  source = "./Modules/08 NSGRule"
+  source = "github.com/dfrappart/Terra-AZBasiclinuxWithModules//Modules//08 NSGRule"
 
   #Module variable
   RGName                          = "${module.ResourceGroup.Name}"
