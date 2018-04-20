@@ -6,7 +6,8 @@
 
 #The count value
 variable "Manageddiskcount" {
-  type = "string"
+  type    = "string"
+  default = "1"
 }
 
 #The Managed Disk name

@@ -5,7 +5,8 @@
 #Variable declaration for Module
 
 variable "AgentCount" {
-  type = "string"
+  type    = "string"
+  default = "1"
 }
 
 variable "AgentName" {

@@ -4,45 +4,36 @@
 
 #Variable declaration for Module
 
-
 variable "AgentCount" {
   type    = "string"
-
+  default = "1"
 }
 
 variable "AgentName" {
-  type    = "string"
-
+  type = "string"
 }
 
 variable "AgentLocation" {
-  type    = "string"
-
+  type = "string"
 }
 
 variable "AgentRG" {
-  type    = "string"
-
+  type = "string"
 }
 
 variable "VMName" {
-  type    = "list"
-
+  type = "list"
 }
 
 variable "EnvironmentTag" {
-  type    = "string"
-
+  type = "string"
 }
 
 variable "EnvironmentUsageTag" {
-  type    = "string"
-
+  type = "string"
 }
 
 resource "azurerm_virtual_machine_extension" "Terra-CustomScriptLinuxAgent" {
-  
-
   count                = "${var.AgentCount}"
   name                 = "${var.AgentName}${count.index+1}"
   location             = "${var.AgentLocation}"
@@ -52,12 +43,12 @@ resource "azurerm_virtual_machine_extension" "Terra-CustomScriptLinuxAgent" {
   type                 = "VMAccessForLinux"
   type_handler_version = "1.4"
 
-      settings = <<SETTINGS
+  settings = <<SETTINGS
         {   
         "commandToExecute": ""
         }
 SETTINGS
-    
+
   tags {
     environment = "${var.EnvironmentTag}"
     usage       = "${var.EnvironmentUsageTag}"

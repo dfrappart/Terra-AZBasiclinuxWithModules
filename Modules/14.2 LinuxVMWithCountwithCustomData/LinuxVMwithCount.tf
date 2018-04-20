@@ -6,7 +6,8 @@
 
 #The VM count
 variable "VMCount" {
-  type = "string"
+  type    = "string"
+  default = "1"
 }
 
 #The VM name

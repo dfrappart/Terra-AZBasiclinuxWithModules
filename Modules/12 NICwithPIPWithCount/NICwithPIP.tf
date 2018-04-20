@@ -6,7 +6,8 @@
 
 #The NIC count
 variable "NICCount" {
-  type = "string"
+  type    = "string"
+  default = "1"
 }
 
 #The NIC name
