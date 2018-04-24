@@ -56,7 +56,7 @@ resource "azurerm_storage_account" "Terra-STOA" {
   location                 = "${var.StorageAccountLocation}"
   account_tier             = "${var.StorageAccountTier}"
   account_replication_type = "${var.StorageReplicationType}"
-  account_kind             = "Storage"
+  account_kind             = "StorageV2"
 
   tags {
     environment            = "${var.EnvironmentTag}"
