@@ -63,5 +63,5 @@ output "RGName" {
 }
 
 output "Name" {
-  value = "${azurerm_storage_container.name}"
+  value = "${azurerm_storage_container.Terra-STC.name}"
 }
