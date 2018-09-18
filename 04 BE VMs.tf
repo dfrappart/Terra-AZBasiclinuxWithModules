@@ -6,8 +6,8 @@
 
 module "AllowMySQLFromFEtoBEIn" {
   #Module source
-  #source = "./Modules/08 NSGRule"
-  source = "github.com/dfrappart/Terra-AZBasiclinuxWithModules//Modules//08 NSGRule"
+  #source = "./Modules/08-2 NSGRule with services tags"
+  source = "github.com/dfrappart/Terra-AZBasiclinuxWithModules//Modules//08-2 NSGRule with services tags"
 
   #Module variable
   RGName                          = "${module.ResourceGroup.Name}"
@@ -25,8 +25,8 @@ module "AllowMySQLFromFEtoBEIn" {
 
 module "AllowSSHFromBastiontoBEIn" {
   #Module source
-  #source = "./Modules/08 NSGRule"
-  source = "github.com/dfrappart/Terra-AZBasiclinuxWithModules//Modules//08 NSGRule"
+  #source = "./Modules/08-2 NSGRule with services tags"
+  source = "github.com/dfrappart/Terra-AZBasiclinuxWithModules//Modules//08-2 NSGRule with services tags"
 
   #Module variable
   RGName                          = "${module.ResourceGroup.Name}"
@@ -44,8 +44,8 @@ module "AllowSSHFromBastiontoBEIn" {
 
 module "AllowAllBEtoInternetOut" {
   #Module source
-  #source = "./Modules/08 NSGRule"
-  source = "github.com/dfrappart/Terra-AZBasiclinuxWithModules//Modules//08 NSGRule"
+  #source = "./Modules/08-2 NSGRule with services tags"
+  source = "github.com/dfrappart/Terra-AZBasiclinuxWithModules//Modules//08-2 NSGRule with services tags"
 
   #Module variable
   RGName                          = "${module.ResourceGroup.Name}"
