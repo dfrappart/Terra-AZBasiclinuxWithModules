@@ -7,7 +7,7 @@
 module "ResourceGroup" {
   #Module Location
   #source = "./Modules/01 ResourceGroup"
-  source = "github.com/dfrappart/Terra-AZBasiclinuxWithModules//Modules//01 ResourceGroup/"
+  source = "github.com/dfrappart/Terra-AZModuletest//Modules//01 ResourceGroup/"
 
   #Module variable
   RGName              = "${var.RGName}"

@@ -1,1 +1,0 @@
-#This module deploys a General purpose storage account

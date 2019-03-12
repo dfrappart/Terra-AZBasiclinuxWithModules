@@ -66,36 +66,36 @@ output "DiagStorageAccountSecondaryAccessKey" {
 ######################################################
 # Files Storage account Info
 
-output "FilesExchangeStorageAccountName" {
-  value = "${module.FilesExchangeStorageAccount.Name}"
+output "FileStorageAccountName" {
+  value = "${module.FileStorageAccount.Name}"
 }
 
-output "FilesExchangeStorageAccountID" {
-  value = "${module.FilesExchangeStorageAccount.Id}"
+output "FileStorageAccountID" {
+  value = "${module.FileStorageAccount.Id}"
 }
 
-output "FilesExchangeStorageAccountPrimaryBlobEP" {
-  value = "${module.FilesExchangeStorageAccount.PrimaryBlobEP}"
+output "FileStorageAccountPrimaryBlobEP" {
+  value = "${module.FileStorageAccount.PrimaryBlobEP}"
 }
 
-output "FilesExchangeStorageAccountPrimaryQueueEP" {
-  value = "${module.FilesExchangeStorageAccount.PrimaryQueueEP}"
+output "FileStorageAccountPrimaryQueueEP" {
+  value = "${module.FileStorageAccount.PrimaryQueueEP}"
 }
 
-output "FilesExchangeStorageAccountPrimaryTableEP" {
-  value = "${module.FilesExchangeStorageAccount.PrimaryTableEP}"
+output "FileStorageAccountPrimaryTableEP" {
+  value = "${module.FileStorageAccount.PrimaryTableEP}"
 }
 
-output "FilesExchangeStorageAccountPrimaryFileEP" {
-  value = "${module.FilesExchangeStorageAccount.PrimaryFileEP}"
+output "FileStorageAccountPrimaryFileEP" {
+  value = "${module.FileStorageAccount.PrimaryFileEP}"
 }
 
-output "FilesExchangeStorageAccountPrimaryAccessKey" {
-  value = "${module.FilesExchangeStorageAccount.PrimaryAccessKey}"
+output "FileStorageAccountPrimaryAccessKey" {
+  value = "${module.FileStorageAccount.PrimaryAccessKey}"
 }
 
-output "FilesExchangeStorageAccountSecondaryAccessKey" {
-  value = "${module.FilesExchangeStorageAccount.SecondaryAccessKey}"
+output "FileStorageAccountSecondaryAccessKey" {
+  value = "${module.FileStorageAccount.SecondaryAccessKey}"
 }
 
 ######################################################
@@ -147,31 +147,5 @@ output "Bastion_SubnetAddressPrefix" {
   value = "${module.Bastion_Subnet.AddressPrefix}"
 }
 
-######################################################
-#Bastion Output
 
-output "Bastionfqdn" {
-  value = ["${module.BastionPublicIP.fqdns}"]
-}
-
-/*
-output "BastionpublicIPAddress" {
-
-    value = ["${module.BastionPublicIP.IPAddresses}"]
-}
-*/
-######################################################
-#Azure Web LB Output
-
-output "LBWebPublicIPfqdn" {
-  value = ["${module.LBWebPublicIP.fqdns}"]
-}
-
-/*
-output "LBWebPublicIPpublicIPAddress" {
-
-    value = ["${module.LBWebPublicIP.IPAddresses}"]
-}
-
-*/
 

@@ -13,43 +13,46 @@ variable "AzureRegion" {
 
 variable "EnvironmentTag" {
   type    = "string"
-  default = "BasicLinux"
 }
 
 variable "EnvironmentUsageTag" {
   type    = "string"
-  default = "PoC"
+}
+
+variable "OwnerTag" {
+  type    = "string"
+  default = "That would be me"
+}
+
+variable "ProvisioningDateTag" {
+  type    = "string"
+  default = "Today :)"
 }
 
 # Variable to define the Resource Group Name
 
 variable "RGName" {
   type    = "string"
-  default = "RG-BasicLinuxwithModules"
 }
 
 #Variable defining the vnet ip range
 
 variable "vNetIPRange" {
   type    = "list"
-  default = ["10.0.0.0/20"]
+
 }
 
 variable "SubnetAddressRange" {
   #Note: Subnet must be in range included in the vNET Range
 
   default = {
-    "0" = "10.0.0.0/24"
-    "1" = "10.0.1.0/24"
-    "2" = "10.0.2.0/24"
+
   }
 }
 
 variable "SubnetName" {
   default = {
-    "0" = "FE_Subnet"
-    "1" = "BE_Subnet"
-    "2" = "Bastion_Subnet"
+
   }
 }
 

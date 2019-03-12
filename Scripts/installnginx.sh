@@ -1,11 +1,12 @@
 #!/bin/bash
 
-#yum -y update
-yum install -y epel-release
-yum install -y nginx
+echo "bootscript initiated" > /tmp/results.txt 
+apt-get update -y
+
+apt-get install -y nginx
 systemctl start nginx
 
 
-echo "bootscript done" > /tmp/results.txt
+echo "bootscript done" >> /tmp/results.txt
 
 exit 0

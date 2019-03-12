@@ -7,7 +7,7 @@
 module "SampleArchi_vNet" {
   #Module location
   #source = "./Modules/02 vNet"
-  source = "github.com/dfrappart/Terra-AZBasiclinuxWithModules//Modules//02 vNet/"
+  source = "github.com/dfrappart/Terra-AZModuletest//Modules//02 VNet"
 
   #Module variable
   vNetName            = "VNet_${var.EnvironmentTag}"
