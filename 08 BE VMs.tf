@@ -53,7 +53,8 @@ module "BEVMs" {
   source = "github.com/dfrappart/Terra-AZModuletest//Modules//14 - 4 LinuxVMWithCountwithCustomDatawithAZ"
 
   #Module variables
-  VMName              = "BEVMs"
+  VMCount             = "2"
+  VMName              = "BEVM"
   VMLocation          = "${var.AzureRegion}"
   VMRG                = "${module.ResourceGroup.Name}"
   VMNICid             = ["${module.BE_NIC.Ids}"]
@@ -81,7 +82,7 @@ module "NetworkWatcherAgentForBE" {
   AgentName           = "NetworkWatcherAgentForBE"
   AgentLocation       = "${var.AzureRegion}"
   AgentRG             = "${module.ResourceGroup.Name}"
-  VMName              = ["${module.BastionVM.Name}"]
+  VMName              = ["${module.BEVMs.Name}"]
   EnvironmentTag      = "${var.EnvironmentTag}"
   EnvironmentUsageTag = "${var.EnvironmentUsageTag}"
 }

@@ -13,6 +13,7 @@ module "LBWebPublicIP" {
   #Module variables
   PublicIPCount       = "1"
   PublicIPName        = "lbwebpip"
+  IsZoneRedundant     = "true"
   PublicIPLocation    = "${var.AzureRegion}"
   RGName              = "${module.ResourceGroup.Name}"
   EnvironmentTag      = "${var.EnvironmentTag}"
@@ -27,10 +28,11 @@ module "LBWebFE" {
   #Module variables
   LBCount           = "1"
   ExtLBName         = "LBWebFE"
+  LBSku             = "standard"
   AzureRegion       = "${var.AzureRegion}"
   RGName            = "${module.ResourceGroup.Name}"
   FEConfigName      = "LBWebFEConfig"
-  PublicIPId        = ["${module.LBWebPublicIP.Ids}"]
+  PublicIPId        = ["${module.LBWebPublicIP.ZRIPIds}"]
   LBBackEndPoolName = "LBWebFE_BEPool"
   LBProbeName       = "LBWebFE_Probe"
   LBProbePort       = "80"

@@ -36,7 +36,7 @@ module "AllowHTTPFromInternetFEIn" {
   NSGRuleSourcePortRange          = "*"
   NSGRuleDestinationPortRange     = 80
   NSGRuleSourceAddressPrefix      = "Internet"
-  NSGRuleDestinationASG           = "${module.FEASG.Id}"
+  NSGRuleDestinationASG           = ["${module.FEASG.Id}"]
 }
 
 
@@ -47,7 +47,7 @@ module "NICs_FEWEB" {
   #module source
 
   #source = "./Modules/09 NICWithoutPIPWithCount"
-  source = "github.com/dfrappart/Terra-AZBasiclinuxWithModules//Modules//09 NICWithoutPIPWithCount"
+  source = "github.com/dfrappart/Terra-AZModuletest//Modules//12-5 NICwithoutPIPwithCountwithASG"
 
   #Module variables
 
@@ -56,6 +56,7 @@ module "NICs_FEWEB" {
   NICLocation         = "${var.AzureRegion}"
   RGName              = "${module.ResourceGroup.Name}"
   SubnetId            = "${module.FE_Subnet.Id}"
+  ASGIds              = ["${module.FEASG.Id}"]
   IsLoadBalanced      = "1"
   LBBackEndPoolid     = ["${module.LBWebFE.LBBackendPoolIds}"]
   EnvironmentTag      = "${var.EnvironmentTag}"
@@ -96,8 +97,6 @@ module "VMs_FEWEB" {
 }
 
 #VM Agent
-
-
 
 #Network Watcher Agent
 
